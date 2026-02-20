@@ -1,18 +1,12 @@
-import jwt from 'jsonwebtoken';
-import { config } from '../config/env';
+﻿import jwt from 'jsonwebtoken';
 
-interface TokenPayload {
-  userId: string;
-  email: string;
-  schoolId: string;
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_EXPIRES_IN = '7d';
+
+export function generateToken(userId: string): string {
+  return jwt.sign({ userId }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 }
 
-export function generateToken(payload: TokenPayload): string {
-  return jwt.sign(payload, config.jwtSecret, {
-    expiresIn: config.jwtExpiresIn,
-  });
-}
-
-export function verifyToken(token: string): TokenPayload {
-  return jwt.verify(token, config.jwtSecret) as TokenPayload;
+export function verifyToken(token: string): { userId: string } {
+  return jwt.verify(token, JWT_SECRET) as { userId: string };
 }
