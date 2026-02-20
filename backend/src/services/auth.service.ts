@@ -126,11 +126,7 @@ export async function login(data: { email: string; password: string }) {
   }
 
   // Generate JWT token
-  const token = generateToken({
-    userId: user.id,
-    email: user.email,
-    schoolId: user.schoolId,
-  });
+  const token = generateToken(user.id);
 
   // Return user data (without password hash) and token
   const { passwordHash, verificationToken, ...userData } = user;
