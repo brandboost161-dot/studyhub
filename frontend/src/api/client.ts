@@ -1,9 +1,7 @@
 ﻿import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000/api/v1';
-
-export const apiClient = axios.create({
-  baseURL: API_BASE_URL,
+const apiClient = axios.create({
+  baseURL: 'https://studyhub-production-7f94.up.railway.app/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -27,3 +25,5 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+export { apiClient };
