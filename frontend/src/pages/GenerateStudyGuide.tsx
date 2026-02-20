@@ -1,5 +1,5 @@
-﻿import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { apiClient } from '../api/client';
 import { useAuth } from '../lib/auth';
 
@@ -67,7 +67,7 @@ export default function GenerateStudyGuide() {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-6">
               <Link to="/dashboard" className="text-xl font-bold text-gray-900">StudyHub</Link>
-              <Link to="/ai" className="text-blue-600 hover:underline">← AI Tools</Link>
+              <Link to="/ai" className="text-blue-600 hover:underline">? AI Tools</Link>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600">{user?.name}</span>
@@ -79,7 +79,7 @@ export default function GenerateStudyGuide() {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">📚 AI Study Guide Generator</h1>
+          <h1 className="text-4xl font-bold mb-2">?? AI Study Guide Generator</h1>
           <p className="text-gray-600">Combine your flashcard sets into a comprehensive study guide!</p>
         </div>
 
@@ -109,7 +109,7 @@ export default function GenerateStudyGuide() {
                       <div className="ml-3 flex-1">
                         <div className="font-semibold text-gray-900">{set.title}</div>
                         <div className="text-sm text-gray-600">
-                          {set.course.courseCode} • {set.flashcardCount} cards
+                          {set.course.courseCode} � {set.flashcardCount} cards
                         </div>
                       </div>
                     </label>
@@ -144,7 +144,7 @@ export default function GenerateStudyGuide() {
                 disabled={isLoading || selectedResources.length === 0}
                 className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50"
               >
-                {isLoading ? '🤖 Generating...' : '✨ Generate Study Guide'}
+                {isLoading ? '?? Generating...' : '? Generate Study Guide'}
               </button>
             </form>
           </div>
@@ -154,14 +154,14 @@ export default function GenerateStudyGuide() {
             
             {isLoading && (
               <div className="text-center py-12">
-                <div className="text-5xl mb-4 animate-bounce">🤖</div>
+                <div className="text-5xl mb-4 animate-bounce">??</div>
                 <p className="text-gray-600">AI is creating your study guide...</p>
               </div>
             )}
 
             {!isLoading && !studyGuide && (
               <div className="text-center py-12 text-gray-500">
-                <div className="text-5xl mb-4">📚</div>
+                <div className="text-5xl mb-4">??</div>
                 <p>Your study guide will appear here</p>
               </div>
             )}
@@ -169,7 +169,7 @@ export default function GenerateStudyGuide() {
             {studyGuide && (
               <div className="space-y-6 max-h-[600px] overflow-y-auto">
                 <div className="mb-4 p-3 bg-green-50 border border-green-200 text-green-700 rounded-lg">
-                  ✓ Study guide generated!
+                  ? Study guide generated!
                 </div>
                 
                 <h3 className="text-2xl font-bold text-gray-900">{studyGuide.title}</h3>

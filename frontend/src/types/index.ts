@@ -23,9 +23,12 @@ export interface Course {
   };
   reviewCount?: number;
   resourceCount?: number;
+  flashcardsCount?: number;
+  notesCount?: number;
   averageOverallRating?: number;
   averageWorkloadRating?: number;
   averageDifficultyRating?: number;
+  isSaved?: boolean;
 }
 
 export interface Review {
@@ -73,6 +76,8 @@ export interface StudyResource {
   };
   flashcards?: Flashcard[];
   flashcardCount?: number;
+  fileCount?: number;
+  extractedText?: string;
   hasUpvoted?: boolean;
   isSaved?: boolean;
 }

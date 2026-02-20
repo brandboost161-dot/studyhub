@@ -1,11 +1,10 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { apiClient } from '../api/client';
 import type { StudyResource, Flashcard } from '../types';
 
 export default function StudyMode() {
   const { resourceId } = useParams<{ resourceId: string }>();
-  const navigate = useNavigate();
   const [resource, setResource] = useState<StudyResource | null>(null);
   const [allFlashcards, setAllFlashcards] = useState<Flashcard[]>([]);
   const [activeCards, setActiveCards] = useState<Flashcard[]>([]);
@@ -133,7 +132,7 @@ export default function StudyMode() {
 
         <div className="max-w-2xl mx-auto px-4 py-12">
           <div className="bg-white rounded-2xl shadow-2xl p-12 text-center">
-            <div className="text-6xl mb-6">🎉</div>
+            <div className="text-6xl mb-6">??</div>
             <h2 className="text-4xl font-bold mb-4">Study Session Complete!</h2>
             
             <div className="grid grid-cols-2 gap-6 my-8">
@@ -153,20 +152,20 @@ export default function StudyMode() {
                   onClick={restartWithWrong}
                   className="w-full bg-orange-600 text-white py-4 rounded-xl font-semibold hover:bg-orange-700 transition text-lg"
                 >
-                  🎯 Study Wrong Cards Only ({wrongCards.size} cards)
+                  ?? Study Wrong Cards Only ({wrongCards.size} cards)
                 </button>
               )}
               <button
                 onClick={restartAll}
                 className="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition text-lg"
               >
-                🔄 Start Over (All {allFlashcards.length} cards)
+                ?? Start Over (All {allFlashcards.length} cards)
               </button>
               <Link
                 to="/dashboard"
                 className="block w-full bg-gray-200 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-300 transition text-lg"
               >
-                ← Back to Dashboard
+                ? Back to Dashboard
               </Link>
             </div>
           </div>
@@ -197,7 +196,7 @@ export default function StudyMode() {
           <div className="bg-blue-600 h-2 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
         </div>
         <p className="text-center text-sm text-gray-600 mt-2">
-          Card {currentIndex + 1} of {activeCards.length} • ✓ {correctCards.size} correct • ✗ {wrongCards.size} wrong
+          Card {currentIndex + 1} of {activeCards.length} � ? {correctCards.size} correct � ? {wrongCards.size} wrong
         </p>
       </div>
 
@@ -226,13 +225,13 @@ export default function StudyMode() {
               onClick={markWrong}
               className="px-8 py-4 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-700 transition text-lg"
             >
-              ✗ Wrong
+              ? Wrong
             </button>
             <button
               onClick={markCorrect}
               className="px-8 py-4 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition text-lg"
             >
-              ✓ Correct
+              ? Correct
             </button>
           </div>
         )}
@@ -244,7 +243,7 @@ export default function StudyMode() {
               disabled={currentIndex === 0}
               className="px-6 py-3 bg-white text-gray-700 rounded-lg font-semibold shadow hover:shadow-lg transition disabled:opacity-30"
             >
-              ← Previous
+              ? Previous
             </button>
             <button
               onClick={handleFlip}
@@ -257,13 +256,13 @@ export default function StudyMode() {
               disabled={currentIndex === activeCards.length - 1}
               className="px-6 py-3 bg-white text-gray-700 rounded-lg font-semibold shadow hover:shadow-lg transition disabled:opacity-30"
             >
-              Next →
+              Next ?
             </button>
           </div>
         )}
 
         <div className="text-center mt-8 text-sm text-gray-500">
-          <p>Pro tip: Use arrow keys ← → to navigate, Space to flip</p>
+          <p>Pro tip: Use arrow keys ? ? to navigate, Space to flip</p>
         </div>
       </div>
     </div>
