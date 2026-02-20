@@ -1,0 +1,21 @@
+{
+  "title": "Midterm 1 Review - UPDATED",
+  "flashcards": [
+    {
+      "front": "What is a variable?",
+      "back": "A container for storing data values"
+    },
+    {
+      "front": "What is a loop?",
+      "back": "A programming structure that repeats a block of code"
+    },
+    {
+      "front": "What is an array?",
+      "back": "A data structure that holds multiple values in a single variable"
+    },
+    {
+      "front": "What is a function?",
+      "back": "A reusable block of code that performs a specific task"
+    }
+  ]
+}

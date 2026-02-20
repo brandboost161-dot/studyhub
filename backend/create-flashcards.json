@@ -1,0 +1,19 @@
+{
+  "courseId": "cml9zbk6l00016fvdvzsk5o3y",
+  "title": "Midterm 1 Review",
+  "examTag": "Midterm 1",
+  "flashcards": [
+    {
+      "front": "What is a variable?",
+      "back": "A container for storing data values"
+    },
+    {
+      "front": "What is a loop?",
+      "back": "A programming structure that repeats a block of code"
+    },
+    {
+      "front": "What is an array?",
+      "back": "A data structure that holds multiple values in a single variable"
+    }
+  ]
+}
