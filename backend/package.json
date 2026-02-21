@@ -4,6 +4,7 @@
   "description": "Course platform backend",
   "main": "dist/index.js",
   "scripts": {
+    "seed": "ts-node prisma/seed.ts",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
@@ -37,4 +38,7 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.2"
   }
-}
+},
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  }
