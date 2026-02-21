@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+﻿import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider, useAuth } from './lib/auth';
 import Landing from './pages/Landing';
@@ -138,14 +138,6 @@ function App() {
               }
             />
             <Route
-              path="/ai/study-guide"
-              element={
-                <ProtectedRoute>
-                  <GenerateStudyGuide />
-                </ProtectedRoute>
-              }
-            />
-            <Route
               path="/ai/quiz"
               element={
                 <ProtectedRoute>
@@ -174,14 +166,6 @@ function App() {
               element={
                 <ProtectedRoute>
                   <ActivityFeed />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/study/:resourceId"
-              element={
-                <ProtectedRoute>
-                  <StudyMode />
                 </ProtectedRoute>
               }
             />
