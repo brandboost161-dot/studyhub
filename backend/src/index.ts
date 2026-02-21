@@ -1,4 +1,4 @@
-import express from 'express';
+﻿import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -15,6 +15,7 @@ import aiRoutes from './routes/ai.routes';
 import courseRoutes from './routes/course.routes';
 import userRoutes from './routes/user.routes';
 import analyticsRoutes from './routes/analytics.routes';
+import schoolRoutes from './routes/school.routes';
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use(`${API_PREFIX}/ai`, aiRoutes);
 app.use(`${API_PREFIX}/courses`, courseRoutes);
 app.use(`${API_PREFIX}/users`, userRoutes);
 app.use(`${API_PREFIX}/analytics`, analyticsRoutes);
+app.use(`${API_PREFIX}/schools`, schoolRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
@@ -60,7 +62,7 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 app.listen(config.port, () => {
-  console.log(`🚀 Server running on http://localhost:${config.port}`);
-  console.log(`📊 Prisma Studio: http://localhost:5555`);
-  console.log(`🌍 Environment: ${config.nodeEnv}`);
+  console.log(` Server running on http://localhost:${config.port}`);
+  console.log(` Prisma Studio: http://localhost:5555`);
+  console.log(` Environment: ${config.nodeEnv}`);
 });
